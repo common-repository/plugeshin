@@ -1,0 +1,89 @@
+<a href="http://netlumination.com/blog/plugeshin">PluGeSHin</a> is a <a href="http://wordpress.org/">Wordpress</a> plugin that lets you use the syntax highlighting of  <a href="http://qbnz.com/highlighter/">GeSHi</a> through Wordpress <a href="http://codex.wordpress.org/Shortcode_API">shortcodes</a>.
+
+This is a sample page. You can find full instructions on the <a href="http://netlumination.com/blog/plugeshin">PluGeSHin homepage.</a>
+
+Remember that the look of this page will be affected by the defaults set on the PluGeSHin settings page.
+
+PRE tags that contain the highlighted code have the class name "PluGeSHin" to let you tweak the styling of your code blocks.
+
+Remember to use Shift+Enter if you're typing code and not pasting it in. You don't have to - PluGeSHin will still work if you don't - but it'll look nicer for you in the Visual edit screen.
+<h3>Examples:</h3>
+Highlighting using the default language (if you've changed your default away from "Javascript" the following may not look all that nice):
+<pre>[[geshi] CODE [/geshi]]</pre>
+[geshi]
+<pre>$(document).ready(function(){
+      // Create a selection of the content divs of interest
+    var theDivs = $("#block-1-content, #block-2-content, #block-3-content");
+      // Toggle the visibility of all divs when one is clicked.
+    $("input.toggler").click(function() {
+        $( "#" + $(this).attr("id") + "-content" ).show();
+        theDivs.not( $( "#" + $(this).attr("id") + "-content" ) ).hide();
+    });
+});</pre>
+[/geshi]
+
+The lang attribute let's you pick the highlighting language:
+<pre>[[geshi lang="html4strict"] CODE [/geshi]]</pre>
+[geshi lang="html4strict"]
+<pre>&lt;body&gt;
+    &lt;div id="page"&gt;
+        &lt;ul id="menu"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Gnome&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Rome&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</pre>
+[/geshi]
+
+You can also show line number and draw attention to specific lines:
+<pre>[[geshi lang="php" nums="1" highlight="4,8"] CODE [/geshi]]</pre>
+[geshi lang="php" nums="1" highlight="4,8"]
+<pre>&lt;?php
+class SumOfPower {
+    function __construct () {
+        // Start Timer
+        $Timer1 = new CalcTimer;
+        $Timer1 -&gt; StartTimer();
+        $number = sprintf( number_format(pow(2,1000), 0));
+        for ($count=0; $count &lt; strlen($number); $count++) {
+            $digit+=$number[$count];
+        }
+        echo "The sum is $digit.&lt;br/&gt;";
+        // Stop Timer
+        $Timer1 -&gt; StopTimer();
+    }
+}
+?&gt;</pre>
+[/geshi]
+
+If you're showing line numbers, you can even start at a specific line number:
+<pre>[[geshi lang="lolcode" nums="1" start="37" highlight="3"]CODE[/geshi]]</pre>
+[geshi lang="lolcode" start="37" nums="1" highlight="3"]
+<pre>ON CATURDAY
+    IM IN YR BED
+        I IZ SLEEPIN!!10
+        VISIBLE "Z!"
+    KTHX
+KTHXBYE</pre>
+[/geshi]
+
+Open links to the documentation in a new tab:
+
+[[geshi lang="php" target="_blank" ]CODE[/geshi]]
+
+[geshi lang="php" target="_blank" ]
+<pre>public function unload($name) {
+    list($plugin, $name) = pluginSplit($name);
+    if (isset($this-&gt;_loaded[$name])) {
+        $this-&gt;_loaded[$name]-&gt;cleanup(ClassRegistry::getObject($this-&gt;modelName));
+        unset($this-&gt;_loaded[$name]);
+    }
+    foreach ($this-&gt;_methods as $m =&gt; $callback) {
+        if (is_array($callback) &amp;&amp; $callback[0] == $name) {
+            unset($this-&gt;_methods[$m]);
+        }
+    }
+    $this-&gt;_enabled = array_values(array_diff($this-&gt;_enabled, (array)$name));
+}</pre>
+[/geshi]

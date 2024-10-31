@@ -1,0 +1,15 @@
+#plugeshin-meta-box { display: none; }
+#plugeshin-dialog {
+    padding:10px;
+}
+#plugeshin-dialog h3 {
+    margin-bottom: 0px;
+}
+#plugeshin-lang-list select,
+#plugeshin-dialog select {
+    font-family: "Courier New", Courier, monospace;
+}
+
+#plugeshin-info {    
+    display: none;   
+}
